@@ -1,0 +1,40 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# .NET build artifacts (generated code under Runs/, and the pre-written test project)
+bin/
+obj/
+
+# dotnet test result artifacts (coverage, .trx)
+TestResults/
+
+# Pipeline-generated run artifacts and reports — regenerate via `python3 story2code.py ...`
+Runs/*
+!Runs/.gitkeep
+Results/*
+!Results/.gitkeep
+
+# Excel lock files (created while a report is open in Excel)
+~$*.xlsx
+
+# Secrets / local credential files (see README.md for how keys/tokens are provided)
+.env
+*.env
+.sonar_token
+.anthropic_key
+.openai_key
+
+# IDE
+.vs/
+.idea/
+*.user
+
+# Claude Code local settings (personal, not shared)
+.claude/settings.local.json
