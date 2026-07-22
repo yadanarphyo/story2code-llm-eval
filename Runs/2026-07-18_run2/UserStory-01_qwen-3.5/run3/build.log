@@ -1,0 +1,17 @@
+MSBuild version 17.8.43+f0cbb1397 for .NET
+  Determining projects to restore...
+  Restored /Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-18_run2/UserStory-01_qwen-3.5/run3/src/Implementation.csproj (in 93 ms).
+/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-18_run2/UserStory-01_qwen-3.5/run3/src/Program.cs(8,18): error CS1061: 'IServiceCollection' does not contain a definition for 'AddSwaggerGen' and no accessible extension method 'AddSwaggerGen' accepting a first argument of type 'IServiceCollection' could be found (are you missing a using directive or an assembly reference?) [/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-18_run2/UserStory-01_qwen-3.5/run3/src/Implementation.csproj]
+/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-18_run2/UserStory-01_qwen-3.5/run3/src/Program.cs(18,9): error CS1061: 'WebApplication' does not contain a definition for 'UseSwagger' and no accessible extension method 'UseSwagger' accepting a first argument of type 'WebApplication' could be found (are you missing a using directive or an assembly reference?) [/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-18_run2/UserStory-01_qwen-3.5/run3/src/Implementation.csproj]
+/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-18_run2/UserStory-01_qwen-3.5/run3/src/Program.cs(19,9): error CS1061: 'WebApplication' does not contain a definition for 'UseSwaggerUI' and no accessible extension method 'UseSwaggerUI' accepting a first argument of type 'WebApplication' could be found (are you missing a using directive or an assembly reference?) [/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-18_run2/UserStory-01_qwen-3.5/run3/src/Implementation.csproj]
+
+Build FAILED.
+
+/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-18_run2/UserStory-01_qwen-3.5/run3/src/Program.cs(8,18): error CS1061: 'IServiceCollection' does not contain a definition for 'AddSwaggerGen' and no accessible extension method 'AddSwaggerGen' accepting a first argument of type 'IServiceCollection' could be found (are you missing a using directive or an assembly reference?) [/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-18_run2/UserStory-01_qwen-3.5/run3/src/Implementation.csproj]
+/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-18_run2/UserStory-01_qwen-3.5/run3/src/Program.cs(18,9): error CS1061: 'WebApplication' does not contain a definition for 'UseSwagger' and no accessible extension method 'UseSwagger' accepting a first argument of type 'WebApplication' could be found (are you missing a using directive or an assembly reference?) [/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-18_run2/UserStory-01_qwen-3.5/run3/src/Implementation.csproj]
+/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-18_run2/UserStory-01_qwen-3.5/run3/src/Program.cs(19,9): error CS1061: 'WebApplication' does not contain a definition for 'UseSwaggerUI' and no accessible extension method 'UseSwaggerUI' accepting a first argument of type 'WebApplication' could be found (are you missing a using directive or an assembly reference?) [/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-18_run2/UserStory-01_qwen-3.5/run3/src/Implementation.csproj]
+    0 Warning(s)
+    3 Error(s)
+
+Time Elapsed 00:00:00.96
+

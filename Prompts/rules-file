@@ -1,0 +1,87 @@
+# Story2Code — Rules File
+
+These rules are given verbatim to every LLM at both the spec-generation stage and the
+full-project-generation stage. They exist for one reason: the pre-written unit tests are
+compiled directly against your generated code (white-box testing), so a small set of names
+must be exact and predictable across every model and every run. Everything else about the
+project — architecture, folder layout, extra layers, DI setup, coding style — is entirely
+your choice.
+
+## Target stack (this study)
+
+- Language: C#
+- SDK: .NET 8 (`net8.0` target framework)
+- Project type: ASP.NET Core Web API (`Microsoft.NET.Sdk.Web`)
+
+## Naming contract (MUST follow exactly — case-sensitive)
+
+1. **Main project.** The implementation project's file name, `<AssemblyName>`, and
+   `<RootNamespace>` must all be exactly `Implementation` (i.e. `Implementation.csproj`,
+   namespace root `Implementation`).
+
+2. **Data models.** Define every data model class described in the user story's "Data Model"
+   section in namespace `Implementation.Models`, using the exact class name and exact property
+   names/types given in that section. Do not rename, pluralize, or reinterpret them.
+
+3. **Service contract.** For the method named `<MethodName>` in the user story's "API
+   Interface" section:
+   - Define an interface `Implementation.Services.I<MethodName>Service` with a single public
+     method `<MethodName>` matching the parameters (name + type) and return type/shape
+     described in the "Parameters" and "Response" sections.
+   - The method must be **synchronous** — its return type is the plain response shape itself
+     (e.g. `IEnumerable<RecyclingFacility>`), never wrapped in `Task<...>` and never suffixed
+     `Async`. The pre-written tests call it directly and do not `await`. If you need
+     async-style internals, do the awaiting inside the method body and return the resolved
+     result.
+   - Define a public class `Implementation.Services.<MethodName>Service` implementing that
+     interface. Its constructor must accept the full candidate dataset as a single parameter of
+     type `IEnumerable<TDataModel>`, where `TDataModel` is the data model class the method
+     returns (e.g. `IEnumerable<RecyclingFacility>`). The class must operate on the data it is
+     given — **do not hardcode or seed any mock/sample data inside this class.** The pre-written
+     tests construct it directly with their own known dataset (e.g.
+     `new GetNearbyRecyclingFacilitiesService(testFacilities)`), so it must have no parameterless
+     constructor and no internal fallback data source.
+   - This is a build-time-only requirement for the live app: your `Program.cs`/DI wiring must
+     still compile (e.g. register a factory that supplies your own seed data for a live-running
+     instance), but the pipeline never executes the live app, so what that wiring actually does
+     at runtime is entirely up to you.
+
+   Example: for a `GetNearbyRecyclingFacilities` method, this means
+   `Implementation.Services.IGetNearbyRecyclingFacilitiesService` and
+   `Implementation.Services.GetNearbyRecyclingFacilitiesService`, with
+   `IEnumerable<RecyclingFacility> GetNearbyRecyclingFacilities(string zipCode)` — not
+   `Task<IEnumerable<RecyclingFacility>> GetNearbyRecyclingFacilitiesAsync(string zipCode)` —
+   and a constructor shaped `GetNearbyRecyclingFacilitiesService(IEnumerable<RecyclingFacility> facilities)`.
+
+4. **Required parameters & empty results.**
+   - For any parameter marked `Required: Yes` in the "Parameters" table, the service method
+     must throw `System.ArgumentException` (or a subclass, e.g. `ArgumentNullException`) when
+     the caller passes `null`, an empty string, or a whitespace-only string for that parameter.
+     Do not silently accept or default such values.
+   - For a valid, well-formed input where no matching data exists, return an empty collection
+     — never `null`, never throw — consistent with the documented HTTP 200 OK response shape.
+
+5. **Controller.** Wire an ASP.NET Core controller that calls the service above to serve the
+   documented HTTP method + route. The controller's internal name/structure is unconstrained —
+   only the service class and data model names above are load-bearing for tests.
+
+## What you may design freely
+
+- Overall project/folder structure beyond the pinned namespaces above.
+- Additional layers (repositories, DTOs, mappers, validators), as long as the pinned
+  interface/class described in rule 3 is what the tests call.
+- Dependency injection wiring, middleware, logging, error handling.
+- Any NuGet packages needed, declared in `Implementation.csproj`.
+
+## Output format
+
+- Stage 1 (spec generation): produce a single markdown document describing your intended
+  architecture, file list, and how it satisfies the naming contract above. Do not include full
+  source code at this stage.
+- Stage 2 (full project generation): produce every file needed to build the project, each as a
+  fenced code block preceded by a line of the exact form:
+
+  `// FILE: <relative/path/from/project/root>`
+
+  Include the `.csproj` file itself. Do not include the test project — that is supplied
+  separately and merged in by the pipeline.

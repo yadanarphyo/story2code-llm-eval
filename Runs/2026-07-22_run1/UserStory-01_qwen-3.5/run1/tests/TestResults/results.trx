@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="1ebe7300-507a-4899-a9b7-621280d48370" name="@MacBook-2 2026-07-22 01:06:29" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-07-22T01:06:29.6956200+01:00" queuing="2026-07-22T01:06:29.6956200+01:00" start="2026-07-22T01:06:28.9821920+01:00" finish="2026-07-22T01:06:29.8248760+01:00" />
+  <TestSettings name="default" id="ffb59713-8859-4921-a652-bc2197c6dc02">
+    <Deployment runDeploymentRoot="_MacBook-2_2026-07-22_01_06_29" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="f586c379-fa5b-40e2-bffc-1eda76b01cb7" testId="13689b46-5574-1f29-5231-ff81dd368976" testName="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_ReturnsFacilitiesWithUniqueIds" computerName="MacBook-2" duration="00:00:00.0015860" startTime="2026-07-22T01:06:29.6630570+01:00" endTime="2026-07-22T01:06:29.6630570+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f586c379-fa5b-40e2-bffc-1eda76b01cb7" />
+    <UnitTestResult executionId="a61e6f89-3e7d-4ebd-8ef4-0f1835c45920" testId="a45a7894-9c5c-de64-9cf4-ae3b7223f271" testName="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_PreservesSeededFieldValues" computerName="MacBook-2" duration="00:00:00.0020295" startTime="2026-07-22T01:06:29.6634160+01:00" endTime="2026-07-22T01:06:29.6634160+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a61e6f89-3e7d-4ebd-8ef4-0f1835c45920" />
+    <UnitTestResult executionId="729a8461-2921-4b08-9a7f-02920ca69e66" testId="d3ccb9d5-4403-2b15-6cec-983bf2f9a2b4" testName="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_WithEmptyDataSet_ReturnsEmptyNotNull" computerName="MacBook-2" duration="00:00:00.0009056" startTime="2026-07-22T01:06:29.6755760+01:00" endTime="2026-07-22T01:06:29.6755770+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="729a8461-2921-4b08-9a7f-02920ca69e66" />
+    <UnitTestResult executionId="df07bfb9-6750-4ae0-9e9e-ca2e9a8ac1fd" testId="7cde4e5d-160b-403d-9145-288b11e518c2" testName="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_WhenAllSeededDataMatchesZip_ReturnsAllOfIt" computerName="MacBook-2" duration="00:00:00.0019080" startTime="2026-07-22T01:06:29.6626980+01:00" endTime="2026-07-22T01:06:29.6626980+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="df07bfb9-6750-4ae0-9e9e-ca2e9a8ac1fd" />
+    <UnitTestResult executionId="524f359b-0f25-47cc-b33c-ee1ff62ded87" testId="21b7df9c-df0c-2c2d-9bc2-bccb75507f81" testName="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_WithValidZipCode_ReturnsNonNullResult" computerName="MacBook-2" duration="00:00:00.0000334" startTime="2026-07-22T01:06:29.6642670+01:00" endTime="2026-07-22T01:06:29.6642670+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="524f359b-0f25-47cc-b33c-ee1ff62ded87" />
+    <UnitTestResult executionId="bd347621-6315-45e8-bcbd-1a56cad485df" testId="792fc064-0d45-8466-2211-daaec87be6eb" testName="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_WithNullZipCode_ThrowsArgumentException" computerName="MacBook-2" duration="00:00:00.0001460" startTime="2026-07-22T01:06:29.6628790+01:00" endTime="2026-07-22T01:06:29.6628790+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bd347621-6315-45e8-bcbd-1a56cad485df" />
+    <UnitTestResult executionId="16662449-cb86-4e68-817a-b3959eca0ac1" testId="a16ac105-ccb4-f370-79b8-ce86c04adf75" testName="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_WithEmptyZipCode_ThrowsArgumentException" computerName="MacBook-2" duration="00:00:00.0034360" startTime="2026-07-22T01:06:29.6576980+01:00" endTime="2026-07-22T01:06:29.6577080+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="16662449-cb86-4e68-817a-b3959eca0ac1" />
+    <UnitTestResult executionId="c2879736-ebac-4fb9-8813-903af19882a1" testId="f026bac9-735a-1043-d3f5-089c4410e5fb" testName="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_ReturnsOnlyFacilitiesFromSeededData" computerName="MacBook-2" duration="00:00:00.0004341" startTime="2026-07-22T01:06:29.6640860+01:00" endTime="2026-07-22T01:06:29.6640860+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c2879736-ebac-4fb9-8813-903af19882a1" />
+    <UnitTestResult executionId="96e84aed-37ac-4b53-905a-18f3e521c98e" testId="b14561f7-dee8-aabb-db7b-8a6b90e918a0" testName="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_WithZipCodeNotMatchingAnySeededFacility_DoesNotThrow" computerName="MacBook-2" duration="00:00:00.0001876" startTime="2026-07-22T01:06:29.6636750+01:00" endTime="2026-07-22T01:06:29.6636750+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="96e84aed-37ac-4b53-905a-18f3e521c98e" />
+    <UnitTestResult executionId="26fa38b5-b9f6-4923-bd51-2f11ad85b9d6" testId="29e2c017-0020-825a-d9ec-57282dc26e00" testName="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_WithWhitespaceZipCode_ThrowsArgumentException" computerName="MacBook-2" duration="00:00:00.0001620" startTime="2026-07-22T01:06:29.6623350+01:00" endTime="2026-07-22T01:06:29.6623350+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="26fa38b5-b9f6-4923-bd51-2f11ad85b9d6" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_ReturnsFacilitiesWithUniqueIds" storage="/users/yadanarphyo/space/ess/dissertation/story2code/runs/2026-07-22_run1/userstory-01_qwen-3.5/run1/tests/bin/debug/net8.0/implementation.tests.dll" id="13689b46-5574-1f29-5231-ff81dd368976">
+      <Execution id="f586c379-fa5b-40e2-bffc-1eda76b01cb7" />
+      <TestMethod codeBase="/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-22_run1/UserStory-01_qwen-3.5/run1/tests/bin/Debug/net8.0/Implementation.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests" name="GetNearbyRecyclingFacilities_ReturnsFacilitiesWithUniqueIds" />
+    </UnitTest>
+    <UnitTest name="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_ReturnsOnlyFacilitiesFromSeededData" storage="/users/yadanarphyo/space/ess/dissertation/story2code/runs/2026-07-22_run1/userstory-01_qwen-3.5/run1/tests/bin/debug/net8.0/implementation.tests.dll" id="f026bac9-735a-1043-d3f5-089c4410e5fb">
+      <Execution id="c2879736-ebac-4fb9-8813-903af19882a1" />
+      <TestMethod codeBase="/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-22_run1/UserStory-01_qwen-3.5/run1/tests/bin/Debug/net8.0/Implementation.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests" name="GetNearbyRecyclingFacilities_ReturnsOnlyFacilitiesFromSeededData" />
+    </UnitTest>
+    <UnitTest name="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_WithZipCodeNotMatchingAnySeededFacility_DoesNotThrow" storage="/users/yadanarphyo/space/ess/dissertation/story2code/runs/2026-07-22_run1/userstory-01_qwen-3.5/run1/tests/bin/debug/net8.0/implementation.tests.dll" id="b14561f7-dee8-aabb-db7b-8a6b90e918a0">
+      <Execution id="96e84aed-37ac-4b53-905a-18f3e521c98e" />
+      <TestMethod codeBase="/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-22_run1/UserStory-01_qwen-3.5/run1/tests/bin/Debug/net8.0/Implementation.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests" name="GetNearbyRecyclingFacilities_WithZipCodeNotMatchingAnySeededFacility_DoesNotThrow" />
+    </UnitTest>
+    <UnitTest name="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_WithNullZipCode_ThrowsArgumentException" storage="/users/yadanarphyo/space/ess/dissertation/story2code/runs/2026-07-22_run1/userstory-01_qwen-3.5/run1/tests/bin/debug/net8.0/implementation.tests.dll" id="792fc064-0d45-8466-2211-daaec87be6eb">
+      <Execution id="bd347621-6315-45e8-bcbd-1a56cad485df" />
+      <TestMethod codeBase="/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-22_run1/UserStory-01_qwen-3.5/run1/tests/bin/Debug/net8.0/Implementation.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests" name="GetNearbyRecyclingFacilities_WithNullZipCode_ThrowsArgumentException" />
+    </UnitTest>
+    <UnitTest name="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_WithValidZipCode_ReturnsNonNullResult" storage="/users/yadanarphyo/space/ess/dissertation/story2code/runs/2026-07-22_run1/userstory-01_qwen-3.5/run1/tests/bin/debug/net8.0/implementation.tests.dll" id="21b7df9c-df0c-2c2d-9bc2-bccb75507f81">
+      <Execution id="524f359b-0f25-47cc-b33c-ee1ff62ded87" />
+      <TestMethod codeBase="/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-22_run1/UserStory-01_qwen-3.5/run1/tests/bin/Debug/net8.0/Implementation.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests" name="GetNearbyRecyclingFacilities_WithValidZipCode_ReturnsNonNullResult" />
+    </UnitTest>
+    <UnitTest name="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_WithEmptyDataSet_ReturnsEmptyNotNull" storage="/users/yadanarphyo/space/ess/dissertation/story2code/runs/2026-07-22_run1/userstory-01_qwen-3.5/run1/tests/bin/debug/net8.0/implementation.tests.dll" id="d3ccb9d5-4403-2b15-6cec-983bf2f9a2b4">
+      <Execution id="729a8461-2921-4b08-9a7f-02920ca69e66" />
+      <TestMethod codeBase="/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-22_run1/UserStory-01_qwen-3.5/run1/tests/bin/Debug/net8.0/Implementation.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests" name="GetNearbyRecyclingFacilities_WithEmptyDataSet_ReturnsEmptyNotNull" />
+    </UnitTest>
+    <UnitTest name="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_WhenAllSeededDataMatchesZip_ReturnsAllOfIt" storage="/users/yadanarphyo/space/ess/dissertation/story2code/runs/2026-07-22_run1/userstory-01_qwen-3.5/run1/tests/bin/debug/net8.0/implementation.tests.dll" id="7cde4e5d-160b-403d-9145-288b11e518c2">
+      <Execution id="df07bfb9-6750-4ae0-9e9e-ca2e9a8ac1fd" />
+      <TestMethod codeBase="/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-22_run1/UserStory-01_qwen-3.5/run1/tests/bin/Debug/net8.0/Implementation.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests" name="GetNearbyRecyclingFacilities_WhenAllSeededDataMatchesZip_ReturnsAllOfIt" />
+    </UnitTest>
+    <UnitTest name="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_PreservesSeededFieldValues" storage="/users/yadanarphyo/space/ess/dissertation/story2code/runs/2026-07-22_run1/userstory-01_qwen-3.5/run1/tests/bin/debug/net8.0/implementation.tests.dll" id="a45a7894-9c5c-de64-9cf4-ae3b7223f271">
+      <Execution id="a61e6f89-3e7d-4ebd-8ef4-0f1835c45920" />
+      <TestMethod codeBase="/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-22_run1/UserStory-01_qwen-3.5/run1/tests/bin/Debug/net8.0/Implementation.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests" name="GetNearbyRecyclingFacilities_PreservesSeededFieldValues" />
+    </UnitTest>
+    <UnitTest name="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_WithEmptyZipCode_ThrowsArgumentException" storage="/users/yadanarphyo/space/ess/dissertation/story2code/runs/2026-07-22_run1/userstory-01_qwen-3.5/run1/tests/bin/debug/net8.0/implementation.tests.dll" id="a16ac105-ccb4-f370-79b8-ce86c04adf75">
+      <Execution id="16662449-cb86-4e68-817a-b3959eca0ac1" />
+      <TestMethod codeBase="/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-22_run1/UserStory-01_qwen-3.5/run1/tests/bin/Debug/net8.0/Implementation.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests" name="GetNearbyRecyclingFacilities_WithEmptyZipCode_ThrowsArgumentException" />
+    </UnitTest>
+    <UnitTest name="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests.GetNearbyRecyclingFacilities_WithWhitespaceZipCode_ThrowsArgumentException" storage="/users/yadanarphyo/space/ess/dissertation/story2code/runs/2026-07-22_run1/userstory-01_qwen-3.5/run1/tests/bin/debug/net8.0/implementation.tests.dll" id="29e2c017-0020-825a-d9ec-57282dc26e00">
+      <Execution id="26fa38b5-b9f6-4923-bd51-2f11ad85b9d6" />
+      <TestMethod codeBase="/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Runs/2026-07-22_run1/UserStory-01_qwen-3.5/run1/tests/bin/Debug/net8.0/Implementation.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Implementation.Tests.GetNearbyRecyclingFacilitiesServiceTests" name="GetNearbyRecyclingFacilities_WithWhitespaceZipCode_ThrowsArgumentException" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="13689b46-5574-1f29-5231-ff81dd368976" executionId="f586c379-fa5b-40e2-bffc-1eda76b01cb7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a45a7894-9c5c-de64-9cf4-ae3b7223f271" executionId="a61e6f89-3e7d-4ebd-8ef4-0f1835c45920" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d3ccb9d5-4403-2b15-6cec-983bf2f9a2b4" executionId="729a8461-2921-4b08-9a7f-02920ca69e66" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7cde4e5d-160b-403d-9145-288b11e518c2" executionId="df07bfb9-6750-4ae0-9e9e-ca2e9a8ac1fd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="21b7df9c-df0c-2c2d-9bc2-bccb75507f81" executionId="524f359b-0f25-47cc-b33c-ee1ff62ded87" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="792fc064-0d45-8466-2211-daaec87be6eb" executionId="bd347621-6315-45e8-bcbd-1a56cad485df" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a16ac105-ccb4-f370-79b8-ce86c04adf75" executionId="16662449-cb86-4e68-817a-b3959eca0ac1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f026bac9-735a-1043-d3f5-089c4410e5fb" executionId="c2879736-ebac-4fb9-8813-903af19882a1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b14561f7-dee8-aabb-db7b-8a6b90e918a0" executionId="96e84aed-37ac-4b53-905a-18f3e521c98e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="29e2c017-0020-825a-d9ec-57282dc26e00" executionId="26fa38b5-b9f6-4923-bd51-2f11ad85b9d6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="10" executed="10" passed="10" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 8.0.21)
+[xUnit.net 00:00:00.04]   Discovering: Implementation.Tests
+[xUnit.net 00:00:00.06]   Discovered:  Implementation.Tests
+[xUnit.net 00:00:00.06]   Starting:    Implementation.Tests
+[xUnit.net 00:00:00.10]   Finished:    Implementation.Tests
+</StdOut>
+    </Output>
+    <CollectorDataEntries>
+      <Collector agentName="MacBook-2" uri="datacollector://microsoft/CoverletCodeCoverage/1.0" collectorDisplayName="XPlat code coverage">
+        <UriAttachments>
+          <UriAttachment>
+            <A href="MacBook-2/coverage.cobertura.xml"></A>
+          </UriAttachment>
+        </UriAttachments>
+      </Collector>
+    </CollectorDataEntries>
+  </ResultSummary>
+</TestRun>

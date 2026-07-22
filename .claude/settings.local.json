@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -m pip list)",
+      "Bash(dotnet --version)",
+      "Bash(docker --version)",
+      "Bash(ollama --version)",
+      "Bash(python3 -m pip install --quiet --dry-run langchain langchain-community langchain-ollama pyyaml)",
+      "Bash(timeout 8 python3 -m pip download --no-deps -d /tmp/pipcheck pyyaml)",
+      "Bash(python3 -m pip install --quiet langchain langchain-community langchain-ollama langchain-openai langchain-anthropic pyyaml)",
+      "Bash(echo \"EXIT_CODE=$?\")",
+      "Bash(python3 -c \"import requests; print\\(requests.__version__\\)\")",
+      "Bash(python3 -c ' *)",
+      "Bash(cat)",
+      "Bash(mkdir -p /tmp/story2code_smoketest/manual_impl/src/Controllers)",
+      "Bash(curl -s -m 5 http://localhost:9000/api/system/status)",
+      "Bash(dotnet tool *)",
+      "Bash(SONAR_TOKEN=squ_11ed736b9468e2164d5a66c55b2e071fae5d7116 python3 -c ' *)",
+      "Read(//usr/local/share/dotnet/**)",
+      "Read(//Users/yadanarphyo/.dotnet/tools/**)",
+      "Read(//usr/local/share/dotnet/host/fxr/**)",
+      "Bash(curl -s -u squ_11ed736b9468e2164d5a66c55b2e071fae5d7116: http://localhost:9000/api/ce/component?component=story2code-verify-test-1)",
+      "Bash(curl -s -u squ_11ed736b9468e2164d5a66c55b2e071fae5d7116: 'http://localhost:9000/api/measures/component?component=story2code-verify-test-1&metricKeys=code_smells,reliability_rating,bugs,security_rating,vulnerabilities,complexity,sqale_rating,ncloc')"
+    ]
+  }
+}
