@@ -14,6 +14,13 @@ This runs all 4 configured models (`Config/llm.config`), 3 trials each, through 
 generation → full project generation → build → tests → SonarQube analysis, and writes
 `Results/results_<userstory>_<runid>.xlsx`.
 
+To run just one model (e.g. while iterating on a `Prompts/rules-file` change), pass its `id`
+from `Config/llm.config` as a second argument:
+
+```bash
+python3 story2code.py UserStory-01.md kimi-k2.6
+```
+
 ## Environment status (this machine)
 
 | Component | Status |

@@ -1,6 +1,0 @@
-projectKey=story2code-UserStory-01-qwen-3.5-run2-2026-07-18_run2
-serverUrl=http://localhost:9000
-serverVersion=26.7.0.124771
-dashboardUrl=http://localhost:9000/dashboard?id=story2code-UserStory-01-qwen-3.5-run2-2026-07-18_run2
-ceTaskId=3c96f890-ade5-4613-8126-974ba36ff9b7
-ceTaskUrl=http://localhost:9000/api/ce/task?id=3c96f890-ade5-4613-8126-974ba36ff9b7

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Entry point matching the documented CLI: python3 story2code.py <userStoryNN.md>"""
+"""Entry point matching the documented CLI: python3 story2code.py <userStoryNN.md> [llm-model-name]"""
 import sys
 from pathlib import Path
 
