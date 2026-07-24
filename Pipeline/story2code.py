@@ -1,11 +1,12 @@
 """CLI orchestrator (PIPELINE_PLAN.md §3, §11 step 8).
 
 Usage:
-    python3 story2code.py <userStoryNN.md>
+    python3 story2code.py <userStoryNN.md> [llm-model-name]
 
-For each of the 4 configured LLMs, runs `runs_per_model` trials (default 3) through
-Stages 1-5 (spec generation -> full project generation -> build -> test -> SonarQube),
-then writes one Excel report row per trial (Stage 6).
+For each configured LLM (or just the one named by the optional second argument — matched
+against a model's `id` in Config/llm.config, e.g. `kimi-k2.6`, or its display name), runs
+`runs_per_model` trials (default 3) through Stages 1-5 (spec generation -> full project
+generation -> build -> test -> SonarQube), then writes one Excel report row per trial (Stage 6).
 """
 from __future__ import annotations
 
@@ -41,6 +42,14 @@ def resolve_user_story_path(arg: str) -> Path:
 
 def sanitize_key_component(text: str) -> str:
     return "".join(c if c.isalnum() or c in "-_." else "-" for c in text)
+
+
+def resolve_model_filter(models: list[ModelConfig], name: str) -> ModelConfig:
+    for model_config in models:
+        if model_config.id == name or model_config.display_name.lower() == name.lower():
+            return model_config
+    valid_ids = ", ".join(m.id for m in models)
+    raise ValueError(f"Unknown model '{name}'. Valid options: {valid_ids}")
 
 
 def run_trial(
@@ -128,8 +137,8 @@ def run_trial(
 
 
 def main(argv: list[str]) -> int:
-    if len(argv) != 1:
-        print("Usage: python3 story2code.py <userStoryNN.md>", file=sys.stderr)
+    if not (1 <= len(argv) <= 2):
+        print("Usage: python3 story2code.py <userStoryNN.md> [llm-model-name]", file=sys.stderr)
         return 2
 
     user_story_path = resolve_user_story_path(argv[0])
@@ -141,11 +150,19 @@ def main(argv: list[str]) -> int:
     sonar_config = load_sonar_config()
     adapter = CSharpAdapter()
 
+    models_to_run = llm_config.models
+    if len(argv) == 2:
+        try:
+            models_to_run = [resolve_model_filter(llm_config.models, argv[1])]
+        except ValueError as e:
+            print(e, file=sys.stderr)
+            return 2
+
     run_manager = RunManager.start_new_run(user_story_id)
     print(f"Started run {run_manager.run_id} for {user_story_id}")
 
     results: list[TrialResult] = []
-    for model_config in llm_config.models:
+    for model_config in models_to_run:
         for run_number in range(1, llm_config.runs_per_model + 1):
             print(f"--- {model_config.display_name} run {run_number}/{llm_config.runs_per_model} ---")
             trial_dir = run_manager.trial_dir(model_config.id, run_number)

@@ -1,4 +1,4 @@
-# User Story 02
+# User Story 03
 
 ## Description
 As a user, I want to choose a flexible pick up time, so that I can more conveniently use the website.

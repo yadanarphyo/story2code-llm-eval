@@ -1,6 +1,0 @@
-projectKey=story2code-verify-test-2
-serverUrl=http://localhost:9000
-serverVersion=26.7.0.124771
-dashboardUrl=http://localhost:9000/dashboard?id=story2code-verify-test-2
-ceTaskId=8a65b253-cec1-4c29-af8f-593ac58cad61
-ceTaskUrl=http://localhost:9000/api/ce/task?id=8a65b253-cec1-4c29-af8f-593ac58cad61

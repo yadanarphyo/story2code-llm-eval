@@ -17,10 +17,10 @@ This pipeline supports the dissertation *"A Comparative Analysis of LLM-Driven C
 The pipeline is invoked as:
 
 ```bash
-python3 story2code.py <userStoryNN.md>
+python3 story2code.py <userStoryNN.md> [llm-model-name]
 ```
 
-where `<userStoryNN.md>` contains the user story description, its API interface contract, and its data model (see sample in §9).
+where `<userStoryNN.md>` contains the user story description, its API interface contract, and its data model (see sample in §9). The optional `[llm-model-name]` restricts the run to a single model (matched against a model's `id` in `Config/llm.config`, e.g. `kimi-k2.6`) instead of all 4 configured models.
 
 ### Design principle: language-agnostic by construction
 
