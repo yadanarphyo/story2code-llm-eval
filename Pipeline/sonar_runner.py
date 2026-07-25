@@ -128,6 +128,10 @@ def run_analysis(
         f"/k:{project_key}",
         f"/d:sonar.host.url={sonar_config.host_url}",
         f"/d:sonar.token={token}",
+        # Generated trial code lives under Runs/, which .gitignore excludes wholesale. The
+        # scanner treats git-ignored files as excluded from analysis by default, which would
+        # silently produce an empty analysis for every trial — override that here.
+        "/d:sonar.scm.exclusions.disabled=true",
     ]
     for k, v in sonar_props.extra_args.items():
         begin_cmd.append(f"/d:{k}={v}")
@@ -181,17 +185,22 @@ def _poll_and_fetch(sonar_config: SonarConfig, project_key: str, token: str) -> 
 
     result = SonarResult(project_key=project_key, dashboard_url=dashboard_url)
 
-    # The CE task can report SUCCESS a moment before the measures index is queryable, so
-    # retry the measures fetch briefly rather than trusting an empty response on the first try.
+    # The CE task can report SUCCESS a moment before every measure is queryable — issue-count
+    # metrics (bugs/code_smells/vulnerabilities) tend to appear before size/rating metrics like
+    # complexity and sqale_rating do. Retry until all requested metrics are present rather than
+    # accepting the first (possibly partial) non-empty response, which would silently read as
+    # e.g. complexity=0 for a project that actually has real complexity a moment later.
     measures_resp = None
-    for _ in range(6):
+    for _ in range(10):
         measures_resp = requests.get(
             f"{sonar_config.host_url}/api/measures/component",
             params={"component": project_key, "metricKeys": ",".join(MEASURE_KEYS)},
             auth=(token, ""),
             timeout=30,
         )
-        if measures_resp.ok and measures_resp.json().get("component", {}).get("measures"):
+        if measures_resp.ok and len(
+            measures_resp.json().get("component", {}).get("measures", [])
+        ) == len(MEASURE_KEYS):
             break
         time.sleep(2)
 
