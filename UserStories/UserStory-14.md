@@ -1,4 +1,4 @@
-# User Story 04
+# User Story 14
 
 ## Description
 As a Data Publishing User, I want to be able to delete a dataset I have published, So that I can remove unwanted data from OpenSpending.
@@ -25,19 +25,3 @@ DeleteDataset
 ## Response
 
 **HTTP 204 No Content**
-
-```json
-{}
-```
-
----
-
-# Data Model
-
-## DatasetDeletionResult
-
-| Property | Type | Nullable | Description |
-|----------|------|----------|--------------|
-| DatasetId | int | Non-nullable | Unique identifier of the deleted dataset |
-| Status | string | Non-nullable | Result status of the deletion (Deleted, NotFound, Forbidden) |
-| DeletedAt | datetime | Nullable | Timestamp when the deletion completed; null if deletion failed |

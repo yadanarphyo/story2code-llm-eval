@@ -1,4 +1,4 @@
-# User Story 08
+# User Story 18
 
 ## Description
 As a trainer, I want to update one of my existing courses or events, so that it reflects accurate information.

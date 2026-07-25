@@ -1,4 +1,4 @@
-# User Story 07
+# User Story 17
 
 ## Description
 As a trainer, I want to create a new course or event, so that site visitors can see it.

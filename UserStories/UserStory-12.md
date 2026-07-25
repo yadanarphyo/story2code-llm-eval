@@ -1,4 +1,4 @@
-# User Story 02
+# User Story 12
 
 ## Description
 As a Data Publishing User, I want to be able to import data in Excel, So that I do not have to convert data formats in order to use the data packager.

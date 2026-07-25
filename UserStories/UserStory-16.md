@@ -1,4 +1,4 @@
-# User Story 06
+# User Story 16
 
 ## Description
 As a Data Consuming User, I want to be able to search any dataset published and publicly accessible by their title and metadata, So that I can find the datasets I'm interested in.
