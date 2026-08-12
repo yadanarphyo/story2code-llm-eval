@@ -15,7 +15,7 @@ CONFIG_DIR = REPO_ROOT / "Config"
 class ModelConfig:
     id: str
     display_name: str
-    provider: str  # "ollama" | "openai" | "anthropic"
+    provider: str  # "ollama" | "openai" | "anthropic" | "google"
     temperature: float
     ollama_tag: str | None = None
     model_name: str | None = None
