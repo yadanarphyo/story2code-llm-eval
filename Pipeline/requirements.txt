@@ -3,6 +3,7 @@ langchain-community
 langchain-ollama
 langchain-openai
 langchain-anthropic
+langchain-google-genai
 openpyxl
 pandas
 pyyaml

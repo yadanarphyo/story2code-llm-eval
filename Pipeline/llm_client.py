@@ -54,7 +54,44 @@ def get_chat_model(model_config: ModelConfig) -> BaseChatModel:
             api_key=api_key,
         )
 
+    if model_config.provider == "google":
+        from langchain_google_genai import ChatGoogleGenerativeAI
+
+        api_key = model_config.resolved_api_key()
+        if not api_key:
+            raise LlmConfigError(
+                f"{model_config.id}: provider=google requires env var "
+                f"{model_config.api_key_env} to be set"
+            )
+        return ChatGoogleGenerativeAI(
+            model=model_config.model_name,
+            temperature=model_config.temperature,
+            google_api_key=api_key,
+        )
+
     raise LlmConfigError(f"{model_config.id}: unknown provider '{model_config.provider}'")
+
+
+def _content_to_text(content) -> str:
+    """Flatten a LangChain message's content to plain text.
+
+    Most providers return a plain string, but some (e.g. Gemini 3.x) return a list of
+    structured content blocks like [{"type": "text", "text": "..."}]. Concatenate the
+    text of those blocks rather than str()-ing the whole list, which would leak Python
+    repr syntax (escaped newlines, provider "signature"/"extras" metadata) into the
+    downstream parsers.
+    """
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list):
+        parts: list[str] = []
+        for block in content:
+            if isinstance(block, str):
+                parts.append(block)
+            elif isinstance(block, dict) and isinstance(block.get("text"), str):
+                parts.append(block["text"])
+        return "".join(parts)
+    return str(content)
 
 
 def invoke_text(model_config: ModelConfig, system_prompt: str, user_prompt: str) -> str:
@@ -66,4 +103,4 @@ def invoke_text(model_config: ModelConfig, system_prompt: str, user_prompt: str)
             ("human", user_prompt),
         ]
     )
-    return response.content if isinstance(response.content, str) else str(response.content)
+    return _content_to_text(response.content)

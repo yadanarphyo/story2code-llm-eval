@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/yadanarphyo/Space/ESS/Dissertation/story2Code/Unit-Tests/UserStory-01/Implementation.Tests.csproj": {}
+    "/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Unit-Tests/UserStory-01/Implementation.Tests.csproj": {}
   },
   "projects": {
-    "/Users/yadanarphyo/Space/ESS/Dissertation/story2Code/Unit-Tests/UserStory-01/Implementation.Tests.csproj": {
+    "/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Unit-Tests/UserStory-01/Implementation.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/yadanarphyo/Space/ESS/Dissertation/story2Code/Unit-Tests/UserStory-01/Implementation.Tests.csproj",
+        "projectUniqueName": "/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Unit-Tests/UserStory-01/Implementation.Tests.csproj",
         "projectName": "Implementation.Tests",
-        "projectPath": "/Users/yadanarphyo/Space/ESS/Dissertation/story2Code/Unit-Tests/UserStory-01/Implementation.Tests.csproj",
+        "projectPath": "/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Unit-Tests/UserStory-01/Implementation.Tests.csproj",
         "packagesPath": "/Users/yadanarphyo/.nuget/packages/",
-        "outputPath": "/Users/yadanarphyo/Space/ESS/Dissertation/story2Code/Unit-Tests/UserStory-01/obj/",
+        "outputPath": "/Users/yadanarphyo/Space/ESS/Dissertation/Story2Code/Unit-Tests/UserStory-01/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/yadanarphyo/.nuget/NuGet/NuGet.Config"
