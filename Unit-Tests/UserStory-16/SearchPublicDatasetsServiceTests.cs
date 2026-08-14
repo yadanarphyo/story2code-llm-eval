@@ -26,7 +26,7 @@ public class SearchPublicDatasetsServiceTests
                 DatasetId = 101,
                 Title = "Municipal Budget 2026",
                 Publisher = "City of Springfield",
-                Tags = new[] { "budget", "municipal", "2026" },
+                Tags = new List<string> { "budget", "municipal", "2026" },
                 PublishedAt = new DateTime(2026, 6, 1, 9, 0, 0, DateTimeKind.Utc)
             },
             new DatasetSearchResult
@@ -34,7 +34,7 @@ public class SearchPublicDatasetsServiceTests
                 DatasetId = 102,
                 Title = "Regional Sales Q2",
                 Publisher = "Acme Analytics",
-                Tags = new[] { "sales", "regional" },
+                Tags = new List<string> { "sales", "regional" },
                 PublishedAt = new DateTime(2026, 6, 15, 9, 0, 0, DateTimeKind.Utc)
             },
             new DatasetSearchResult
@@ -42,7 +42,7 @@ public class SearchPublicDatasetsServiceTests
                 DatasetId = 103,
                 Title = "Municipal Water Usage",
                 Publisher = "City of Springfield",
-                Tags = new[] { "water", "municipal" },
+                Tags = new List<string> { "water", "municipal" },
                 PublishedAt = new DateTime(2026, 5, 1, 9, 0, 0, DateTimeKind.Utc)
             },
             new DatasetSearchResult
@@ -66,7 +66,7 @@ public class SearchPublicDatasetsServiceTests
     {
         var service = CreateService(CreateFixture());
 
-        var result = service.SearchPublicDatasets("Municipal", page: null, pageSize: null);
+        var result = service.SearchPublicDatasets("Municipal", page: 1, pageSize: 20);
 
         Assert.NotNull(result);
     }
@@ -76,7 +76,7 @@ public class SearchPublicDatasetsServiceTests
     {
         var service = CreateService(CreateFixture());
 
-        var result = service.SearchPublicDatasets("Municipal", page: null, pageSize: null);
+        var result = service.SearchPublicDatasets("Municipal", page: 1, pageSize: 20);
 
         Assert.NotNull(result.Results);
     }
@@ -86,7 +86,7 @@ public class SearchPublicDatasetsServiceTests
     {
         var service = CreateService(CreateFixture());
 
-        var result = service.SearchPublicDatasets("Municipal", page: null, pageSize: null);
+        var result = service.SearchPublicDatasets("Municipal", page: 1, pageSize: 20);
 
         Assert.All(result.Results, r => Assert.Contains("Municipal", r.Title));
         Assert.Equal(2, result.Results.Count());
@@ -97,7 +97,7 @@ public class SearchPublicDatasetsServiceTests
     {
         var service = CreateService(CreateFixture());
 
-        var result = service.SearchPublicDatasets("Nonexistent Term Xyz", page: null, pageSize: null);
+        var result = service.SearchPublicDatasets("Nonexistent Term Xyz", page: 1, pageSize: 20);
 
         Assert.NotNull(result.Results);
         Assert.Empty(result.Results);
@@ -119,7 +119,7 @@ public class SearchPublicDatasetsServiceTests
     {
         var service = CreateService(CreateFixture());
 
-        var result = service.SearchPublicDatasets("Municipal", page: null, pageSize: null);
+        var result = service.SearchPublicDatasets("Municipal", page: 1, pageSize: 20);
 
         Assert.Equal(1, result.Page);
     }
@@ -129,7 +129,7 @@ public class SearchPublicDatasetsServiceTests
     {
         var service = CreateService(CreateFixture());
 
-        var result = service.SearchPublicDatasets("Municipal", page: null, pageSize: null);
+        var result = service.SearchPublicDatasets("Municipal", page: 1, pageSize: 20);
 
         Assert.Equal(20, result.PageSize);
     }
@@ -162,7 +162,7 @@ public class SearchPublicDatasetsServiceTests
         var service = CreateService(fixture);
         var seeded = fixture.First(d => d.DatasetId == 101);
 
-        var result = service.SearchPublicDatasets("Municipal Budget 2026", page: null, pageSize: null);
+        var result = service.SearchPublicDatasets("Municipal Budget 2026", page: 1, pageSize: 20);
         var match = result.Results.First(r => r.DatasetId == 101);
 
         Assert.Equal(seeded.Title, match.Title);
@@ -175,7 +175,7 @@ public class SearchPublicDatasetsServiceTests
     {
         var service = CreateService(CreateFixture());
 
-        var exception = Record.Exception(() => service.SearchPublicDatasets("National Parks", page: null, pageSize: null));
+        var exception = Record.Exception(() => service.SearchPublicDatasets("National Parks", page: 1, pageSize: 20));
 
         Assert.Null(exception);
     }
@@ -185,7 +185,7 @@ public class SearchPublicDatasetsServiceTests
     {
         var service = CreateService(new List<DatasetSearchResult>());
 
-        var result = service.SearchPublicDatasets("anything", page: null, pageSize: null);
+        var result = service.SearchPublicDatasets("anything", page: 1, pageSize: 20);
 
         Assert.NotNull(result);
         Assert.NotNull(result.Results);
@@ -200,7 +200,7 @@ public class SearchPublicDatasetsServiceTests
     {
         var service = CreateService(CreateFixture());
 
-        Assert.ThrowsAny<ArgumentException>(() => service.SearchPublicDatasets(query!, page: null, pageSize: null));
+        Assert.ThrowsAny<ArgumentException>(() => service.SearchPublicDatasets(query!, page: 1, pageSize: 20));
     }
 
     [Fact]
@@ -208,7 +208,7 @@ public class SearchPublicDatasetsServiceTests
     {
         var service = CreateService(CreateFixture());
 
-        var result = service.SearchPublicDatasets("a", page: null, pageSize: null);
+        var result = service.SearchPublicDatasets("a", page: 1, pageSize: 20);
 
         var ids = result.Results.Select(r => r.DatasetId).ToList();
         Assert.Equal(ids.Count, ids.Distinct().Count());

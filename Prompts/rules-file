@@ -39,8 +39,7 @@ your choice.
      returns (e.g. `IEnumerable<RecyclingFacility>`). The class must operate on the data it is
      given — **do not hardcode or seed any mock/sample data inside this class.** The pre-written
      tests construct it directly with their own known dataset (e.g.
-     `new GetNearbyRecyclingFacilitiesService(testFacilities)`), so it must have no parameterless
-     constructor and no internal fallback data source.
+     `new GetNearbyRecyclingFacilitiesService(testFacilities)`).
    - This is a build-time-only requirement for the live app: your `Program.cs`/DI wiring must
      still compile (e.g. register a factory that supplies your own seed data for a live-running
      instance), but the pipeline never executes the live app, so what that wiring actually does

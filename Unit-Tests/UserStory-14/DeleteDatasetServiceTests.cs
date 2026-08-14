@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Implementation.Services;
 using Xunit;
 
@@ -9,11 +7,10 @@ namespace Implementation.Tests;
 // Implementation project.
 //
 // Design note: this story has no "# Data Model" section at all (the response is HTTP 204 No
-// Content, no body), so rule 3's "constructor takes IEnumerable<TDataModel>, where TDataModel is
-// the data model class the method returns" has no literal data model to bind to since the method
-// returns void. The most minimal, unambiguous stand-in a model could reasonably invent given only
-// a bare `datasetId` in the story is a plain existing-ID collection, so the constructor here is
-// modeled as `IEnumerable<int>` (existing dataset IDs) rather than any invented named class.
+// Content, no body), so rule 3's "constructor takes IEnumerable<TDataModel>" has no literal data
+// model to bind to. Per Prompts/rules-file rule 3, a parameterless constructor is acceptable when
+// the story has no Data Model section, so the service is constructed parameterless here, following
+// the story exactly as written rather than inventing an unstated dataset parameter/type.
 //
 // Design note ("does it really delete?"): because the method is void and there is no read-back
 // method anywhere in this story's API surface, there is no way to deterministically observe
@@ -23,20 +20,15 @@ namespace Implementation.Tests;
 // persistence the way the write-with-response stories can.
 public class DeleteDatasetServiceTests
 {
-    private static List<int> CreateExistingDatasetIdsFixture()
+    private static IDeleteDatasetService CreateService()
     {
-        return new List<int> { 101, 102, 103 };
-    }
-
-    private static IDeleteDatasetService CreateService(IEnumerable<int> existingDatasetIds)
-    {
-        return new DeleteDatasetService(existingDatasetIds);
+        return new DeleteDatasetService();
     }
 
     [Fact]
-    public void DeleteDataset_WithExistingDatasetId_DoesNotThrow()
+    public void DeleteDataset_WithValidDatasetId_DoesNotThrow()
     {
-        var service = CreateService(CreateExistingDatasetIdsFixture());
+        var service = CreateService();
 
         var exception = Record.Exception(() => service.DeleteDataset(101));
 
@@ -44,9 +36,9 @@ public class DeleteDatasetServiceTests
     }
 
     [Fact]
-    public void DeleteDataset_WithDatasetIdNotInDataset_DoesNotThrow()
+    public void DeleteDataset_WithUnknownDatasetId_DoesNotThrow()
     {
-        var service = CreateService(CreateExistingDatasetIdsFixture());
+        var service = CreateService();
 
         var exception = Record.Exception(() => service.DeleteDataset(999));
 
@@ -54,19 +46,9 @@ public class DeleteDatasetServiceTests
     }
 
     [Fact]
-    public void DeleteDataset_WithEmptyDataset_DoesNotThrow()
-    {
-        var service = CreateService(new List<int>());
-
-        var exception = Record.Exception(() => service.DeleteDataset(101));
-
-        Assert.Null(exception);
-    }
-
-    [Fact]
     public void DeleteDataset_CalledTwiceForSameId_DoesNotThrow()
     {
-        var service = CreateService(CreateExistingDatasetIdsFixture());
+        var service = CreateService();
 
         var exception = Record.Exception(() =>
         {
@@ -80,7 +62,7 @@ public class DeleteDatasetServiceTests
     [Fact]
     public void DeleteDataset_WithZeroDatasetId_DoesNotThrow()
     {
-        var service = CreateService(CreateExistingDatasetIdsFixture());
+        var service = CreateService();
 
         var exception = Record.Exception(() => service.DeleteDataset(0));
 
@@ -90,7 +72,7 @@ public class DeleteDatasetServiceTests
     [Fact]
     public void DeleteDataset_WithNegativeDatasetId_DoesNotThrow()
     {
-        var service = CreateService(CreateExistingDatasetIdsFixture());
+        var service = CreateService();
 
         var exception = Record.Exception(() => service.DeleteDataset(-1));
 
@@ -98,14 +80,14 @@ public class DeleteDatasetServiceTests
     }
 
     [Fact]
-    public void DeleteDataset_DeletingEachExistingIdInTurn_DoesNotThrow()
+    public void DeleteDataset_DeletingSeveralDifferentIdsInTurn_DoesNotThrow()
     {
-        var fixture = CreateExistingDatasetIdsFixture();
-        var service = CreateService(fixture);
+        var service = CreateService();
+        var datasetIds = new[] { 101, 102, 103 };
 
         var exception = Record.Exception(() =>
         {
-            foreach (var id in fixture)
+            foreach (var id in datasetIds)
             {
                 service.DeleteDataset(id);
             }

@@ -56,7 +56,7 @@ SearchPublicDatasets
 | DatasetId | int | Non-nullable | Unique identifier of the matching dataset |
 | Title | string | Non-nullable | Title of the dataset |
 | Publisher | string | Nullable | Name of the organization or user who published the dataset |
-| Tags | array of string | Nullable | Metadata tags associated with the dataset |
+| Tags | List of string | Nullable | Metadata tags associated with the dataset |
 | PublishedAt | datetime | Non-nullable | Timestamp when the dataset was published |
 
 ## DatasetSearchResponse
@@ -66,4 +66,4 @@ SearchPublicDatasets
 | TotalResults | int | Non-nullable | Total number of datasets matching the search query |
 | Page | int | Non-nullable | Current page number of results |
 | PageSize | int | Non-nullable | Number of results returned per page |
-| Results | array of DatasetSearchResult | Non-nullable | Collection of matching datasets for the current page |
+| Results | List of DatasetSearchResult | Non-nullable | Collection of matching datasets for the current page |

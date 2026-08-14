@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Implementation.Services;
 using Xunit;
 
@@ -10,28 +8,24 @@ namespace Implementation.Tests;
 //
 // Design note: as with US-14 (DeleteDataset), this story has no "# Data Model" section (the
 // response is HTTP 204 No Content), so there is no named class for rule 3's constructor to bind
-// to. The constructor here is modeled as the minimal unambiguous stand-in: `IEnumerable<int>`
-// (existing course IDs).
+// to. Per Prompts/rules-file rule 3, a parameterless constructor is acceptable when the story has
+// no Data Model section, so the service is constructed parameterless here, following the story
+// exactly as written rather than inventing an unstated dataset parameter/type.
 //
 // Design note ("does it really delete?"): the method is void with no read-back method anywhere in
 // this story's API surface, so there is no way to deterministically observe deletion through the
 // public contract alone. These tests are limited to "does not throw" / idempotency-style checks.
 public class DeleteCourseServiceTests
 {
-    private static List<int> CreateExistingCourseIdsFixture()
+    private static IDeleteCourseService CreateService()
     {
-        return new List<int> { 501, 502, 503 };
-    }
-
-    private static IDeleteCourseService CreateService(IEnumerable<int> existingCourseIds)
-    {
-        return new DeleteCourseService(existingCourseIds);
+        return new DeleteCourseService();
     }
 
     [Fact]
-    public void DeleteCourse_WithExistingCourseId_DoesNotThrow()
+    public void DeleteCourse_WithValidCourseId_DoesNotThrow()
     {
-        var service = CreateService(CreateExistingCourseIdsFixture());
+        var service = CreateService();
 
         var exception = Record.Exception(() => service.DeleteCourse(501));
 
@@ -39,9 +33,9 @@ public class DeleteCourseServiceTests
     }
 
     [Fact]
-    public void DeleteCourse_WithCourseIdNotInDataset_DoesNotThrow()
+    public void DeleteCourse_WithUnknownCourseId_DoesNotThrow()
     {
-        var service = CreateService(CreateExistingCourseIdsFixture());
+        var service = CreateService();
 
         var exception = Record.Exception(() => service.DeleteCourse(999));
 
@@ -49,19 +43,9 @@ public class DeleteCourseServiceTests
     }
 
     [Fact]
-    public void DeleteCourse_WithEmptyDataset_DoesNotThrow()
-    {
-        var service = CreateService(new List<int>());
-
-        var exception = Record.Exception(() => service.DeleteCourse(501));
-
-        Assert.Null(exception);
-    }
-
-    [Fact]
     public void DeleteCourse_CalledTwiceForSameId_DoesNotThrow()
     {
-        var service = CreateService(CreateExistingCourseIdsFixture());
+        var service = CreateService();
 
         var exception = Record.Exception(() =>
         {
@@ -75,7 +59,7 @@ public class DeleteCourseServiceTests
     [Fact]
     public void DeleteCourse_WithZeroCourseId_DoesNotThrow()
     {
-        var service = CreateService(CreateExistingCourseIdsFixture());
+        var service = CreateService();
 
         var exception = Record.Exception(() => service.DeleteCourse(0));
 
@@ -85,7 +69,7 @@ public class DeleteCourseServiceTests
     [Fact]
     public void DeleteCourse_WithNegativeCourseId_DoesNotThrow()
     {
-        var service = CreateService(CreateExistingCourseIdsFixture());
+        var service = CreateService();
 
         var exception = Record.Exception(() => service.DeleteCourse(-1));
 
@@ -93,14 +77,14 @@ public class DeleteCourseServiceTests
     }
 
     [Fact]
-    public void DeleteCourse_DeletingEachExistingIdInTurn_DoesNotThrow()
+    public void DeleteCourse_DeletingSeveralDifferentIdsInTurn_DoesNotThrow()
     {
-        var fixture = CreateExistingCourseIdsFixture();
-        var service = CreateService(fixture);
+        var service = CreateService();
+        var courseIds = new[] { 501, 502, 503 };
 
         var exception = Record.Exception(() =>
         {
-            foreach (var id in fixture)
+            foreach (var id in courseIds)
             {
                 service.DeleteCourse(id);
             }
