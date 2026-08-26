@@ -25,3 +25,20 @@ DeleteDataset
 ## Response
 
 **HTTP 204 No Content**
+
+---
+
+# Data Model
+
+## Dataset
+
+Candidate dataset the delete operates over (the method itself returns no body).
+
+| Property | Type | Nullable | Description |
+|----------|------|----------|--------------|
+| DatasetId | int | Non-nullable | Unique identifier of the dataset |
+| Name | string | Non-nullable | Name of the dataset |
+| Description | string | Nullable | Description of the dataset |
+| Publisher | string | Nullable | Name of the organization or user who published the dataset |
+| Status | string | Non-nullable | Publication status of the dataset (Published, Draft, Archived) |
+| CreatedAt | datetime | Non-nullable | Timestamp when the dataset was published |
