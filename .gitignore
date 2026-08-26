@@ -18,7 +18,6 @@ TestResults/
 # Pipeline-generated run artifacts and reports — regenerate via `python3 story2code.py ...`
 Runs/*
 !Runs/.gitkeep
-Results/*
 !Results/.gitkeep
 
 # Excel lock files (created while a report is open in Excel)
